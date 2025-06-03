@@ -1,16 +1,29 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixins" as *;
-@use "../../../styles/breakpoints" as *;
 @use "sass:math";
 
 .sidebar {
   width: $sidebar-width;
-  height: 100%;
+  min-height: 100%;
   background-color: $dark-slate;
   border-bottom-right-radius: $base-border-radius;
   border-top-right-radius: $base-border-radius;
+  padding-bottom: $base-margin;
 
-  @include position(space-between, column);
+  @include positionWithJustify(space-between, column);
+
+  @include breakpoint(720px) {
+    @include positionWithJustify(space-between, row);
+    width: 100%;
+    min-height: $tb-sidebar-height;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-bottom: 0;
+  }
+
+  @include breakpoint(420px) {
+    width: 100%;
+  }
 
   .logo-container {
     width: $sidebar-width;
@@ -19,11 +32,18 @@
     border-bottom-right-radius: $base-border-radius;
     border-top-right-radius: $base-border-radius;
     position: relative;
-    @include position;
+    @include positionWithJustify;
+
+    @include breakpoint(720px) {
+      width: $tb-sidebar-height;
+      min-height: $tb-sidebar-height;
+      min-height: $tb-sidebar-height;
+    }
 
     .bottom-half {
       background-color: $primary-purple-light;
       border-top-left-radius: $base-border-radius;
+      border-bottom-right-radius: $base-border-radius;
       height: math.div($sidebar-width, 2);
       width: 100%;
       position: absolute;
@@ -32,26 +52,58 @@
 
     img {
       z-index: 1;
+      width: 40px;
+      height: 40px;
     }
   }
 
   .settings {
     width: $sidebar-width;
-    min-height: $settings-height;
-    background-color: pink;
+
+    @include breakpoint(720px) {
+      @include positionWithJustify(space-between, row);
+      width: 50%;
+      min-height: $tb-sidebar-height;
+    }
 
     .theme-switch {
-      padding: $base-padding;
-      @include position;
+      padding-bottom: $base-padding;
+      width: $sidebar-width;
+      @include positionWithJustify;
+
+      @include breakpoint(720px) {
+        min-height: 100%;
+        padding: 0;
+        padding-bottom: 0;
+        padding-left: $base-padding;
+        padding-right: $base-padding;
+      }
     }
-    .horizontal-line {
+
+    .line {
       width: 100%;
       height: 1px;
-      border: $base-border-thickness solid $dark-slate;
+      border: $base-border-thickness solid $line-color;
+
+      @include breakpoint(720px) {
+        height: $tb-sidebar-height;
+        width: 1px;
+      }
     }
+
     .avatar-container {
-      padding: $base-padding;
-      @include position;
+      padding-top: $base-padding;
+      @include positionWithJustify;
+
+      img {
+        border-radius: 50%;
+      }
+
+      @include breakpoint(720px) {
+        padding-top: 0;
+        padding-left: $base-padding;
+        padding-right: $base-padding + 20px;
+      }
     }
   }
 }

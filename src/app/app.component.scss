@@ -1,4 +1,13 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
 .wrapper {
   width: 100%;
   height: 100%;
+
+  // @include position(row, $base-gap);
+
+  // @include breakpoint(720px) {
+  //   @include position(column, $base-gap);
+  // }
 }

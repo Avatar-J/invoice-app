@@ -1,6 +1,19 @@
-@mixin position($justify: center, $direction: row) {
+@mixin positionWithJustify($justify: center, $direction: row) {
   display: flex;
   justify-content: $justify;
   align-items: center;
   flex-direction: $direction;
+}
+
+@mixin position($direction: row, $gap: 0px) {
+  display: flex;
+  align-items: center;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin breakpoint($breakpoint: 0px) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
 }
