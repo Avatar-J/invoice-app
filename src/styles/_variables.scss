@@ -1,9 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
+$font-family: "League Spartan", sans-serif;
+
 //theme colors
 $dark-slate: #494e6e;
 $primary-purple-dark: #7c5dfa;
 $primary-purple-light: #9277ff;
 $midnight-blue: #373b53;
 $line-color: #979797;
+$white: #ffffff;
+
+//font size
+$base-font-size: 12px;
 
 //light theme
 $lg-background-color: #ffffff;
@@ -19,6 +27,8 @@ $base-gap: 10px;
 
 //tablet
 $tb-sidebar-height: 100px;
+$tb-width: 720px;
 
 //mobile
 $mb-sidebar-height: 72px;
+$mb-width: 420px;

@@ -1,0 +1,11 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.invoices-wrapper {
+  width: 730px;
+  height: 300px;
+
+  @include breakpoint($tb-width) {
+    width: 100%;
+  }
+}
