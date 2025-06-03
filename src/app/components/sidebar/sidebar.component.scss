@@ -1,0 +1,57 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+@use "../../../styles/breakpoints" as *;
+@use "sass:math";
+
+.sidebar {
+  width: $sidebar-width;
+  height: 100%;
+  background-color: $dark-slate;
+  border-bottom-right-radius: $base-border-radius;
+  border-top-right-radius: $base-border-radius;
+
+  @include position(space-between, column);
+
+  .logo-container {
+    width: $sidebar-width;
+    min-height: $sidebar-width;
+    background-color: $primary-purple-dark;
+    border-bottom-right-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+    position: relative;
+    @include position;
+
+    .bottom-half {
+      background-color: $primary-purple-light;
+      border-top-left-radius: $base-border-radius;
+      height: math.div($sidebar-width, 2);
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    img {
+      z-index: 1;
+    }
+  }
+
+  .settings {
+    width: $sidebar-width;
+    min-height: $settings-height;
+    background-color: pink;
+
+    .theme-switch {
+      padding: $base-padding;
+      @include position;
+    }
+    .horizontal-line {
+      width: 100%;
+      height: 1px;
+      border: $base-border-thickness solid $dark-slate;
+    }
+    .avatar-container {
+      padding: $base-padding;
+      @include position;
+    }
+  }
+}
