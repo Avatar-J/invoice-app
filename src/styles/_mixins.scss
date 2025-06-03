@@ -12,6 +12,13 @@
   gap: $gap;
 }
 
+@mixin button {
+  background-color: transparent;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
 @mixin breakpoint($breakpoint: 0px) {
   @media (max-width: $breakpoint) {
     @content;

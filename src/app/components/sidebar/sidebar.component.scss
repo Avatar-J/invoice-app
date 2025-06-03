@@ -95,8 +95,12 @@
       padding-top: $base-padding;
       @include positionWithJustify;
 
-      img {
-        border-radius: 50%;
+      button {
+        @include button;
+
+        img {
+          border-radius: 50%;
+        }
       }
 
       @include breakpoint(720px) {
