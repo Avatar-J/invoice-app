@@ -8,7 +8,9 @@
 
   .main-content {
     width: 100%;
-    @include position(column, $base-gap);
+    height: 100%;
+    @include position(center);
+    justify-content: center;
   }
 
   @include breakpoint(720px) {

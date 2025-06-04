@@ -1,0 +1,59 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.invoice-card {
+  width: $content-wrapper-width;
+  font-size: $base-font-size;
+  min-height: $invoice-card-height;
+  padding: $base-padding;
+  box-shadow: $base-box-shadow;
+  border-radius: 8px;
+  @include position(row);
+  justify-content: space-between;
+  align-items: center;
+
+  .id {
+    font-weight: bold;
+  }
+  .total {
+    font-weight: bold;
+    font-size: $base-font-size * 2;
+  }
+  .status {
+    width: $status-width;
+    min-height: $status-height;
+    border-radius: 6px;
+    @include positionWithJustify;
+    align-items: center;
+    span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+  }
+  .paid {
+    background-color: rgba($green, 0.1);
+    color: $green;
+    span {
+      background-color: $green;
+    }
+  }
+  .pending {
+    background-color: rgba($orange, 0.1);
+    color: $orange;
+    span {
+      background-color: $orange;
+    }
+  }
+  .draft {
+    background-color: rgba($grey, 0.1);
+    color: $midnight-blue;
+    span {
+      background-color: $grey;
+    }
+  }
+
+  button {
+    @include button;
+  }
+}
