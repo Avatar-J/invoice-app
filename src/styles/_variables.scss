@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
+$font-family: "League Spartan", sans-serif;
+
+//theme colors
+$dark-slate: #494e6e;
+$primary-purple-dark: #7c5dfa;
+$primary-purple-light: #9277ff;
+$midnight-blue: #373b53;
+$line-color: #979797;
+$white: #ffffff;
+$green: #33d69f;
+$orange: #ff8f00;
+$grey: #979797;
+
+//font size
+$base-font-size: 12px;
+
+//light theme
+$lg-background-color: #ffffff;
+
+//base sizing, spaces, borders
+$sidebar-width: 103px;
+$settings-height: 137px;
+$base-border-radius: 25px;
+$base-border-thickness: 1px;
+$base-padding: 20px;
+$base-margin: 20px;
+$base-gap: 10px;
+$invoice-toolbar-height: 80px;
+$status-width: 104px;
+$status-height: 40px;
+$invoice-card-height: 72px;
+$content-wrapper-width: 730px;
+$base-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+
+//tablet
+$tb-sidebar-height: 100px;
+$tb-width: 720px;
+
+//mobile
+$mb-sidebar-height: 72px;
+$mb-width: 420px;

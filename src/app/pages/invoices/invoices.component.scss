@@ -1,0 +1,22 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.invoices-wrapper {
+  width: $content-wrapper-width;
+  height: 100%;
+
+  @include breakpoint($tb-width) {
+    width: 100%;
+  }
+
+  .invoicesList {
+    width: 100%;
+    height: calc(100% - #{$invoice-toolbar-height});
+    @include positionWithJustify(center, column);
+  }
+  .invoiceCards {
+    width: 100%;
+    @include position(column, $base-gap);
+    align-items: center;
+  }
+}

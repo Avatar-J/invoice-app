@@ -1,0 +1,17 @@
+<div class="invoices-wrapper">
+    <app-invoice-toolbar></app-invoice-toolbar>
+
+    <div class="invoicesList">
+        @for (invoice of invoices; track invoice.id) {
+        <div class="invoiceCards">
+            <app-invoice-card [invoice]="invoice"></app-invoice-card>
+        </div>
+
+
+        }
+        @empty {
+        <img src="assets/images/illustration-empty.svg" />
+        }
+    </div>
+
+</div>
