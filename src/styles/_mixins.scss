@@ -1,3 +1,4 @@
+@use "variables" as *;
 @mixin positionWithJustify($justify: center, $direction: row) {
   display: flex;
   justify-content: $justify;
@@ -46,5 +47,15 @@
 @mixin breakpoint($breakpoint: 0px) {
   @media (max-width: $breakpoint) {
     @content;
+  }
+}
+
+@mixin pagesWrapper {
+  margin: $base-margin 0;
+  width: $content-wrapper-width;
+  height: 100%;
+
+  @include breakpoint($tb-width) {
+    width: 100%;
   }
 }

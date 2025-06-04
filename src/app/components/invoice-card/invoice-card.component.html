@@ -1,4 +1,4 @@
-<a>
+<a [routerLink]="['/invoices', invoice.id]">
     <div class="invoice-card">
         <h2 class="id"><span>#</span>{{invoice.id}}</h2>
         <div class="date">
@@ -10,9 +10,7 @@
         <div class="total">
             € <span>{{invoice.total}}</span>
         </div>
-        <div class="status" [ngClass]="statusContainerClasses(invoice.status)">
-            <span></span>{{invoice.status}}
-        </div>
+        <app-invoice-status [invoiceStatus]="invoice.status"></app-invoice-status>
 
         <button>
             <img src="assets/images/icon-arrow-right.svg" />

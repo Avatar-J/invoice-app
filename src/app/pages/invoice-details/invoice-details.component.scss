@@ -1,0 +1,12 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.wrapper {
+  @include pagesWrapper;
+  @include position(column);
+
+  a {
+    @include linkStyle;
+    @include position(row, $base-gap);
+  }
+}
