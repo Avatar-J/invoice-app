@@ -1,29 +1,51 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixins" as *;
 
+a {
+  @include linkStyle;
+}
 .invoice-card {
   width: $content-wrapper-width;
   font-size: $base-font-size;
   min-height: $invoice-card-height;
-  padding: $base-padding;
+  padding: 0 $base-padding;
   box-shadow: $base-box-shadow;
   border-radius: 8px;
-  @include position(row);
-  justify-content: space-between;
-  align-items: center;
+
+  @include gridLayout;
+
+  @include breakpoint($tb-width) {
+    width: 100%;
+  }
+  @include breakpoint($mb-width) {
+    width: 100%;
+  }
 
   .id {
     font-weight: bold;
+
+    span {
+      color: #888eb0;
+    }
+  }
+  .date {
+    text-align: left;
+  }
+  .name {
+    text-align: left;
   }
   .total {
+    padding-right: 15px;
     font-weight: bold;
     font-size: $base-font-size * 2;
+    text-align: right;
   }
   .status {
     width: $status-width;
     min-height: $status-height;
     border-radius: 6px;
     @include positionWithJustify;
+    gap: $base-gap;
     align-items: center;
     span {
       width: 8px;

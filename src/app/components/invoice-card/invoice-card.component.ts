@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Invoice } from '../../../Model/invoice';
 
 @Component({
   selector: 'app-invoice-card',
@@ -8,11 +9,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './invoice-card.component.scss',
 })
 export class InvoiceCardComponent {
-  status: string = 'paid';
-  statusContainerClasses() {
-    if (this.status === 'paid') {
+  @Input({
+    required: true,
+  })
+  invoice!: Invoice;
+
+  statusContainerClasses(status: string) {
+    if (status === 'paid') {
       return 'paid';
-    } else if (this.status === 'pending') {
+    } else if (status === 'pending') {
       return 'pending';
     } else {
       return 'draft';

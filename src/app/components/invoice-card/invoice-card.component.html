@@ -1,18 +1,23 @@
-<div class="invoice-card">
-    <h2 class="id">#RT3030</h2>
-    <div class="date">
-        Due <span>19 Aug 2021</span>
+<a>
+    <div class="invoice-card">
+        <h2 class="id"><span>#</span>{{invoice.id}}</h2>
+        <div class="date">
+            Due <span>{{invoice.paymentDue | date: 'dd MMM yyyy'}}</span>
+        </div>
+        <div class="name">
+            {{invoice.clientName}}
+        </div>
+        <div class="total">
+            € <span>{{invoice.total}}</span>
+        </div>
+        <div class="status" [ngClass]="statusContainerClasses(invoice.status)">
+            <span></span>{{invoice.status}}
+        </div>
+
+        <button>
+            <img src="assets/images/icon-arrow-right.svg" />
+        </button>
+
+
     </div>
-    <div class="name">
-        Jenson Huang
-    </div>
-    <div class="total">
-        € <span>1800.90</span>
-    </div>
-    <div class="status" [ngClass]="statusContainerClasses()">
-        <span></span>Paid
-    </div>
-    <button>
-        <img src="assets/images/icon-arrow-right.svg" />
-    </button>
-</div>
+</a>

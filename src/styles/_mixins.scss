@@ -11,18 +11,37 @@
   gap: $gap;
 }
 
+@mixin linkStyle {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @mixin button {
   background-color: transparent;
   text-decoration: none;
   outline: none;
   border: none;
   display: inline-block;
+  cursor: pointer;
 }
 @mixin actionButton($color: #7c5dfa) {
   border-radius: 40px;
-  padding: 10px 20px;
+  padding: 7px 12px;
   background-color: $color;
   color: #ffffff;
+}
+
+@mixin gridLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+@mixin multirowGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
 }
 @mixin breakpoint($breakpoint: 0px) {
   @media (max-width: $breakpoint) {

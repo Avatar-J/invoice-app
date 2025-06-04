@@ -4,7 +4,7 @@
     <div class="invoicesList">
         @for (invoice of invoices; track invoice.id) {
         <div class="invoiceCards">
-            <app-invoice-card></app-invoice-card>
+            <app-invoice-card [invoice]="invoice"></app-invoice-card>
         </div>
 
 
