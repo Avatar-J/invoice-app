@@ -22,4 +22,10 @@ export class InvoiceServiceService {
   get(): Observable<Invoice[]> {
     return this.invoices$;
   }
+
+  getById(id: string): Observable<Invoice | undefined> {
+    return this.invoices$.pipe(
+      map((invoices) => invoices.find((invoice) => invoice.id === id))
+    );
+  }
 }

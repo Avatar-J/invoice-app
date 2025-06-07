@@ -1,21 +1,19 @@
-<a [routerLink]="['/invoices', invoice.id]">
-    <div class="invoice-card">
-        <h2 class="id"><span>#</span>{{invoice.id}}</h2>
-        <div class="date">
-            Due <span>{{invoice.paymentDue | date: 'dd MMM yyyy'}}</span>
-        </div>
-        <div class="name">
-            {{invoice.clientName}}
-        </div>
-        <div class="total">
-            € <span>{{invoice.total}}</span>
-        </div>
-        <app-invoice-status [invoiceStatus]="invoice.status"></app-invoice-status>
-
-        <button>
-            <img src="assets/images/icon-arrow-right.svg" />
-        </button>
-
-
+<div class="invoice-card">
+    <h2 class="id"><span>#</span>{{invoice.id}}</h2>
+    <div class="date">
+        Due <span>{{invoice.paymentDue | date: 'dd MMM yyyy'}}</span>
     </div>
-</a>
+    <div class="name">
+        {{invoice.clientName}}
+    </div>
+    <div class="total">
+        € <span>{{invoice.total}}</span>
+    </div>
+    <app-invoice-status [invoiceStatus]="invoice.status"></app-invoice-status>
+
+    <button>
+        <img src="assets/images/icon-arrow-right.svg" />
+    </button>
+
+
+</div>

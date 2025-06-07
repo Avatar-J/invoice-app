@@ -32,6 +32,19 @@
   color: #ffffff;
 }
 
+@mixin actionButtonWide($color: #7c5dfa, $text: #ffffff, $width: 89px) {
+  text-decoration: none;
+  width: $width;
+  outline: none;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 40px;
+  padding: 20px 20px;
+  background-color: $color;
+  color: $text;
+}
+
 @mixin gridLayout {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1.2fr 1fr auto;

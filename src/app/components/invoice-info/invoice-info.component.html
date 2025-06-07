@@ -1,0 +1,86 @@
+<div class="invoice-info">
+    <div class="top">
+        <div class="right">
+            <h3><span>#</span>{{invoice.id}}</h3>
+            <p>{{invoice.description}}</p>
+        </div>
+        <div class="senders-address">
+            <div>{{invoice.senderAddress.street}}</div>
+            <div>{{invoice.senderAddress.city}}</div>
+            <div>{{invoice.senderAddress.postCode}}</div>
+            <div>{{invoice.senderAddress.country}}</div>
+
+        </div>
+    </div>
+
+    <div class="second">
+        <div class="one">
+            <div class="invoice-date">
+                <p>Invoice Date</p>
+                <h3>{{invoice.createdAt | date: 'dd MMM YYYY'}}</h3>
+            </div>
+            <div class="Payment-due">
+                <p>Payment Due</p>
+                <h3>{{invoice.paymentDue | date: 'dd MMM YYYY'}}</h3>
+            </div>
+
+        </div>
+
+        <div class="two">
+            <div class="bill-to">
+                <p>Bill To</p>
+                <h3>{{invoice.clientName}}</h3>
+            </div>
+
+            <div class="client-address">
+                <div>{{invoice.clientAddress.street}}</div>
+                <div>{{invoice.clientAddress.city}}</div>
+                <div>{{invoice.clientAddress.postCode}}</div>
+                <div>{{invoice.clientAddress.country}}</div>
+
+            </div>
+
+        </div>
+
+        <div class="sendTo">
+            <p>Send To</p>
+            <h3>{{invoice.clientEmail}}</h3>
+
+        </div>
+
+    </div>
+
+    <div class="items">
+
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of invoice.items;let i = $index; track i; ){
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td><span>€</span>{{item.price}}</td>
+                    <td><span>€</span>{{item.total}}</td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="amount-due">
+        <div>Amount Due</div>
+
+        <div>€1800.90</div>
+
+    </div>
+
+</div>

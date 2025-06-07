@@ -4,10 +4,16 @@ import { Invoice } from '../../../Model/invoice';
 import { InvoiceCardComponent } from '../../components/invoice-card/invoice-card.component';
 import { CommonModule } from '@angular/common';
 import { InvoiceServiceService } from '../../services/invoice-service.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-invoice-list',
-  imports: [InvoiceToolbarComponent, InvoiceCardComponent, CommonModule],
+  imports: [
+    InvoiceToolbarComponent,
+    InvoiceCardComponent,
+    CommonModule,
+    RouterModule,
+  ],
   templateUrl: './invoice-list.component.html',
   styleUrl: './invoice-list.component.scss',
 })
