@@ -3,9 +3,13 @@
 
     <div class="invoicesList">
         @for (invoice of invoices; track invoice.id) {
+
         <div class="invoiceCards">
-            <app-invoice-card [invoice]="invoice"></app-invoice-card>
+            <a [routerLink]="['/invoices', invoice.id]">
+                <app-invoice-card [invoice]="invoice"></app-invoice-card>
+            </a>
         </div>
+
 
 
         }

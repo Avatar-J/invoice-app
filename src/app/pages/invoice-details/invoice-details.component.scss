@@ -1,0 +1,46 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.wrapper {
+  @include pagesWrapper;
+  @include position(column);
+
+  a {
+    @include linkStyle;
+    @include position(row, $base-gap);
+  }
+
+  .top-toolbar {
+    width: 100%;
+    min-height: $invoice-toolbar-height;
+    padding: 0 $base-padding;
+    background-color: $white;
+    margin-top: $base-margin;
+    @include positionWithJustify(space-between);
+  }
+
+  .bottom-toolbar {
+    display: none;
+  }
+  @include breakpoint($mb-width) {
+    .left-toolbar {
+      width: 100%;
+    }
+    .right-toolbar {
+      display: none;
+    }
+    .bottom-toolbar {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .left-toolbar {
+    @include position(row, $base-gap);
+    align-items: center;
+  }
+
+  .invoice-detail {
+    background-color: coral;
+  }
+}

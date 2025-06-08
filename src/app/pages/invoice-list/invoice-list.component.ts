@@ -4,14 +4,20 @@ import { Invoice } from '../../../Model/invoice';
 import { InvoiceCardComponent } from '../../components/invoice-card/invoice-card.component';
 import { CommonModule } from '@angular/common';
 import { InvoiceServiceService } from '../../services/invoice-service.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-invoices',
-  imports: [InvoiceToolbarComponent, InvoiceCardComponent, CommonModule],
-  templateUrl: './invoices.component.html',
-  styleUrl: './invoices.component.scss',
+  selector: 'app-invoice-list',
+  imports: [
+    InvoiceToolbarComponent,
+    InvoiceCardComponent,
+    CommonModule,
+    RouterModule,
+  ],
+  templateUrl: './invoice-list.component.html',
+  styleUrl: './invoice-list.component.scss',
 })
-export class InvoicesComponent implements OnInit {
+export class InvoiceListComponent implements OnInit {
   invoices!: Invoice[];
   constructor(private InvoiceService: InvoiceServiceService) {}
 
@@ -19,7 +25,5 @@ export class InvoicesComponent implements OnInit {
     this.InvoiceService.get().subscribe((data) => {
       this.invoices = data;
     });
-
-    console.log(this.invoices);
   }
 }

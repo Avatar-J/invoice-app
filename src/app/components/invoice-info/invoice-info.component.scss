@@ -1,0 +1,115 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+@use "sass:math";
+.invoice-info {
+  width: 100%;
+  margin-top: $base-margin;
+  padding: $base-padding * 1.5;
+  font-size: $base-font-size * 1.2;
+  @include position(column, $base-gap * 2);
+  color: #7e88c3;
+
+  .div1 {
+    p {
+      margin-bottom: $base-margin;
+    }
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .dark-text {
+    color: #0c0e16;
+  }
+
+  .top {
+    width: 100%;
+    @include position(row);
+    justify-content: space-between;
+    margin-bottom: $base-margin;
+
+    .right {
+      p {
+        margin-top: $base-margin;
+      }
+    }
+
+    @include breakpoint($mb-width) {
+      width: 100%;
+      @include position(column);
+    }
+  }
+
+  .second {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    margin-bottom: $base-margin;
+
+    .one {
+      position: relative;
+      @include position(column, $base-gap);
+
+      .Payment-due {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+    .two {
+      @include position(column, $base-gap);
+    }
+
+    @include breakpoint($mb-width) {
+      width: 100%;
+      @include position(column);
+
+      gap: $base-gap;
+
+      .one {
+        @include position;
+        justify-content: space-between;
+
+        .Payment-due {
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .items {
+    width: 100%;
+    margin-bottom: $base-margin;
+    padding: $base-padding;
+    background-color: #f9fafe;
+    @include position(column, $base-gap);
+
+    .gridrow {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+      padding: math.div($base-padding, 1.5) 0;
+
+      h3 {
+        font-size: $base-font-size * 1.2;
+        font-weight: bold;
+      }
+    }
+    .table-header div {
+      color: #7e88c3;
+    }
+    .price,
+    .total {
+      text-align: right;
+    }
+    .Qty {
+      text-align: center;
+    }
+  }
+
+  .amount-due {
+    min-height: 80px;
+    background-color: $midnight-blue;
+    color: $white;
+    padding: $base-padding;
+    @include positionWithJustify(space-between, row);
+  }
+}

@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <div>
+        <a [routerLink]="''">
+            <img src="assets/images/icon-arrow-left.svg" />
+            <span>Go back</span>
+        </a>
+
+    </div>
+
+
+    <div class="top-toolbar">
+        <div class="left-toolbar">
+            <span>Status</span>
+            <app-invoice-status [invoiceStatus]="'paid'"></app-invoice-status>
+        </div>
+
+        <div class="right-toolbar">
+            <app-invoice-detail-toolbar></app-invoice-detail-toolbar>
+        </div>
+    </div>
+
+    <app-invoice-info [invoice]="invoice"></app-invoice-info>
+
+    <div class="bottom-toolbar">
+        <app-invoice-detail-toolbar></app-invoice-detail-toolbar>
+    </div>
+
+</div>
