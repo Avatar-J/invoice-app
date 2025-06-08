@@ -3,6 +3,11 @@
     <div class="main-content">
         <router-outlet />
 
+        @if( showNewInvoice){
+        <app-new-invoice-form></app-new-invoice-form>
+
+        }
+
     </div>
 
 </div>

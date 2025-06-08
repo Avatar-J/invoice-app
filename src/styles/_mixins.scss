@@ -9,7 +9,7 @@
 @mixin position($direction: row, $gap: 0px) {
   display: flex;
   flex-direction: $direction;
-  gap: $gap;
+  gap: 10px;
 }
 
 @mixin linkStyle {

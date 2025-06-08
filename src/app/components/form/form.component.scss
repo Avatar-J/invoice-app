@@ -1,0 +1,152 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.form-wrapper {
+  width: 719px - $sidebar-width;
+  background-color: $white;
+  max-height: 100%;
+  @include positionWithJustify(center, column);
+  overflow: hidden;
+}
+
+.scrollable-container {
+  width: 100%;
+  padding: $base-padding;
+  padding-top: 600px;
+  @include positionWithJustify(center, column);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #dfe3fa;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #dfe3fa;
+  }
+  form {
+    width: 504px;
+  }
+  h1 {
+    margin-bottom: $base-margin;
+    text-align: left;
+    width: 100%;
+  }
+  h4 {
+    color: $primary-purple-dark;
+    margin-bottom: $base-margin;
+  }
+
+  label {
+    color: #7e88c3;
+  }
+  input {
+    height: 48px;
+    outline: none;
+    border: 1px solid #dfe3fa;
+    border-radius: 4px;
+    padding: $base-padding;
+
+    &:active {
+      border: 1px solid $primary-purple-dark;
+    }
+    &:hover {
+      border: 1px solid $primary-purple-dark;
+    }
+  }
+
+  .one-column {
+    width: 100%;
+    @include position(column, 5px);
+    margin-bottom: $base-margin;
+  }
+  .three-column {
+    display: grid;
+    grid-template-columns: repeat(3, 152px);
+    margin-bottom: $base-margin;
+    gap: 24px;
+
+    .form-input {
+      @include position(column, 5px);
+    }
+  }
+  .two-column {
+    display: grid;
+    grid-template-columns: repeat(2, 240px);
+    align-items: center;
+    margin-bottom: $base-margin;
+    gap: 24px;
+
+    .form-input {
+      @include position(column, 5px);
+    }
+
+    select {
+      padding: 5px $base-padding;
+      width: 240px;
+      height: 48px;
+      outline: none;
+      border: 1px solid #dfe3fa;
+      border-radius: 4px;
+    }
+  }
+  .new-items {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .item-header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 214px 46px 100px 56px 30px;
+    color: #7e88c3;
+    gap: 12px;
+    margin-bottom: 5px;
+  }
+
+  .item-form-input {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 214px 46px 100px 56px 30px;
+    gap: 12px;
+    margin-bottom: $base-margin;
+
+    button {
+      @include button;
+    }
+
+    div {
+      @include positionWithJustify;
+    }
+  }
+
+  .add-new-item {
+    width: 100%;
+    background-color: #f9fafe;
+    outline: none;
+    border: none;
+
+    @include positionWithJustify;
+    color: #7e88c3;
+    padding: $base-padding;
+  }
+}
+
+.action-btns {
+  width: 100%;
+  @include position(row, $base-gap);
+  .draft {
+    @include actionButtonWide(#373b53, #888eb0, 138px);
+  }
+  .save {
+    @include actionButtonWide($primary-purple-dark, $white, 138px);
+  }
+  .discard {
+    @include actionButtonWide(#f9fafe, #888eb0, 96px);
+  }
+}

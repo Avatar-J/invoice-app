@@ -1,0 +1,135 @@
+<div class="form-wrapper">
+    <div class="scrollable-container">
+        <h1>New Invoice</h1>
+
+        <form [formGroup]="invoiceFormData" (ngSubmit)="onSubmit()">
+            <section class="bill-from" formGroupName="billFrom">
+                <h4>Bill From</h4>
+
+                <div class="one-column">
+                    <label>Street Address</label>
+                    <input type="text" placeholder="19 Union Terrace" formControlName="street" />
+                </div>
+
+                <div class="three-column">
+                    <div class="form-input">
+                        <label>City</label>
+                        <input type="text" placeholder="London" formControlName="city" />
+                    </div>
+                    <div class="form-input">
+                        <label>Post Code</label>
+                        <input type="text" placeholder="E1 3E7" formControlName="postCode" />
+                    </div>
+                    <div class="form-input">
+                        <label>Country</label>
+                        <input type="text" placeholder="United Kingdom" formControlName="country" />
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="bill-to" formGroupName="billTo">
+                <h4>Bill To</h4>
+
+                <div class="one-column">
+                    <label>Client's name</label>
+                    <input type="text" placeholder="Alex Grim" formControlName="clientName" />
+                </div>
+
+                <div class="one-column">
+                    <label>Client's email</label>
+                    <input type="text" placeholder="alexgrim@mail.com" formControlName="clientEmail" />
+                </div>
+
+                <div class="one-column">
+                    <label>Street Address</label>
+                    <input type="text" placeholder="84 church way" formControlName="street" />
+                </div>
+
+                <div class="three-column">
+                    <div class="form-input">
+                        <label>City</label>
+                        <input type="text" placeholder="London" formControlName="city" />
+                    </div>
+                    <div class="form-input">
+                        <label>Post Code</label>
+                        <input type="text" placeholder="E1 3E7" formControlName="postCode" />
+                    </div>
+                    <div class="form-input">
+                        <label>Country</label>
+                        <input type="text" placeholder="United Kingdom" formControlName="country" />
+                    </div>
+
+                </div>
+
+                <div class="two-column">
+                    <div class="form-input">
+                        <label>Invoice date</label>
+                        <input type="date" placeholder="E1 3E7" formControlName="invoiceDate" />
+                    </div>
+                    <div class="form-input">
+                        <label>Payment Terms</label>
+                        <div class="custom-select">
+                            <select formControlName="paymentTerms">
+                                <option>Net 1 Day</option>
+                                <option>Net 7 Day</option>
+                                <option>Net 14 Day</option>
+                                <option>Net 30 Day</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="one-column">
+                    <label>Project Description</label>
+                    <input type="text" placeholder="Graphic designer" formControlName="projectDescription" />
+                </div>
+
+            </section>
+
+            <section class="new-items" formArrayName="items">
+                <h4 [ngStyle]="{'color': '#777F98'}">Item List</h4>
+                <div class="item-header">
+                    <div>Item Name</div>
+                    <div>Qty</div>
+                    <div>Price</div>
+                    <div>Total</div>
+                </div>
+
+                @for (item of items.controls; track item; let i = $index) {
+                <div [formGroupName]="i" class="item-form-input">
+                    <input type="text" formControlName="name" placeholder="Banner Design" />
+                    <input type="number" formControlName="quantity" placeholder="1" />
+                    <input type="number" formControlName="price" placeholder="156.00" />
+                    <div class="total-price">
+                        {{
+                        (item.get('quantity')?.value || 0) *
+                        (item.get('price')?.value || 0) | number : '1.2-2'
+                        }}
+                    </div>
+                    <button type="button" (click)="removeItem(i)">
+                        <img src="assets/images/icon-delete.svg" />
+                    </button>
+                </div>
+                }
+
+                <button class="add-new-item" (click)="addItem()">
+                    <img src="assets/images/icon-plus.svg" />Add New Item
+                </button>
+            </section>
+
+            <section class="action-btns">
+                <button class="discard" (click)="onDiscard()">{{discard}}</button>
+                @if(draft){
+                <button class="draft" (click)="onSaveDraft()">Save as Draft</button>
+                }
+                <button type="submit" class="save">{{save}}</button>
+            </section>
+
+
+        </form>
+    </div>
+</div>

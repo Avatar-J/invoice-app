@@ -8,11 +8,23 @@ export const routes: Routes = [
     component: InvoiceListComponent,
   },
   {
-    path: 'invoices/:id',
-    component: InvoiceDetailsComponent,
+    path: 'invoices',
+    children: [
+      {
+        path: ':id',
+        component: InvoiceDetailsComponent,
+      },
+      {
+        path: 'new',
+        component: NewInvoiceFormComponent,
+        outlet: 'modal',
+      },
+    ],
   },
+
   {
-    path: 'invoices/new',
-    component: NewInvoiceFormComponent,
+    path: '',
+    redirectTo: 'invoices',
+    pathMatch: 'full',
   },
 ];
