@@ -8,14 +8,14 @@
     width: 100%;
     height: calc(100% - #{$invoice-toolbar-height});
     @include positionWithJustify(center, column);
-
-    a {
-      @include linkStyle;
-    }
   }
   .invoiceCards {
     width: 100%;
     @include position(column, $base-gap);
     align-items: center;
+
+    a {
+      @include linkStyle;
+    }
   }
 }

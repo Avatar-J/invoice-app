@@ -14,6 +14,7 @@
 
 @mixin linkStyle {
   text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
 
@@ -52,10 +53,10 @@
   gap: 10px;
 }
 
-@mixin multirowGrid {
+@mixin multirowGrid($number: 4) {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat($number, 1fr);
+  // grid-template-rows: auto auto;
 }
 @mixin breakpoint($breakpoint: 0px) {
   @media (max-width: $breakpoint) {
@@ -67,6 +68,7 @@
   margin: $base-margin 0;
   width: $content-wrapper-width;
   height: 100%;
+  background-color: $white;
 
   @include breakpoint($tb-width) {
     width: 100%;
