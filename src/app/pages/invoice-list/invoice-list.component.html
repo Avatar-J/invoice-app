@@ -1,21 +1,41 @@
-<div class="invoices-wrapper">
-    <app-invoice-toolbar></app-invoice-toolbar>
+<div>
+    <div class="invoices-wrapper">
+        <div class="toolbar">
+            <div class="toolbar-title">
+                <h1>Invoices</h1>
+                <p class="desktop-title">There are 7 total invoices</p>
+                <p class="mobile-title">7 invoices</p>
+            </div>
 
-    <div class="invoicesList">
-        @for (invoice of invoices; track invoice.id) {
+            <div class="right">
+                <button class="filter">
+                    <div class="filter-text">Filter <span>by status</span></div>
+                    <img src="assets/images/icon-arrow-down.svg" />
+                </button>
 
-        <div class="invoiceCards">
-            <a [routerLink]="['/invoices', invoice.id]">
-                <app-invoice-card [invoice]="invoice"></app-invoice-card>
-            </a>
+                <button class="new-invoice" (click)="onCreateNewInvoice()">
+                    <img src="assets/images/icon-plus.svg" />
+                    <div>New Invoice</div>
+                </button>
+
+            </div>
         </div>
 
+        <div class="invoicesList">
+            @for (invoice of invoices; track invoice.id) {
 
+            <div class="invoiceCards">
+                <a [routerLink]="['/invoices', invoice.id]">
+                    <app-invoice-card [invoice]="invoice"></app-invoice-card>
+                </a>
+            </div>
 
-        }
-        @empty {
-        <img src="assets/images/illustration-empty.svg" />
-        }
+            }
+            @empty {
+            <img src="assets/images/illustration-empty.svg" />
+            }
+        </div>
+
     </div>
-
+    <router-outlet name="modal"></router-outlet>
 </div>
