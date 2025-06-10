@@ -15,6 +15,7 @@ import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 export class InvoiceListComponent implements OnInit {
   router = inject(Router);
   invoices!: Invoice[];
+  totalInvoices: number = 0;
   constructor(
     private InvoiceService: InvoiceServiceService,
     private route: ActivatedRoute
@@ -23,6 +24,7 @@ export class InvoiceListComponent implements OnInit {
   ngOnInit() {
     this.InvoiceService.get().subscribe((data) => {
       this.invoices = data;
+      this.totalInvoices = this.invoices.length;
     });
   }
 
