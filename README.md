@@ -1,59 +1,112 @@
-# invoice-app
+# Invoice App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.14.
+## Project Description
 
-## Development server
+Invoice App is a simple Angular application for managing invoices. Users can view a list of invoices, see invoice details, create new invoices, edit existing ones, and mark invoices as paid. The app demonstrates Angular best practices, including component-based architecture, reactive forms, and modular routing.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Setup & Run Instructions
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+1. **Clone the repository:**
 
-## Code scaffolding
+   ```sh
+   git clone https://github.com/Avatar-J/invoice-app.git
+   cd invoice-app
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. **Install dependencies:**
 
-```bash
-ng generate component component-name
-```
+   ```sh
+   npm install
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. **Run the development server:**
+   ```sh
+   ng serve
+   ```
+   The app will be available at [http://localhost:4200](http://localhost:4200).
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Application Features
 
-To build the project run:
+- **Invoice List:** View all invoices with summary information.
+- **Invoice Details:** View detailed information for a selected invoice.
+- **Create Invoice:** Fill out a form to add a new invoice.
+- **Edit Invoice:** Update details of an existing invoice.
+- **Delete Invoice:** Remove an invoice from the list.
+- **Mark as Paid:** Change invoice status to "Paid".
+- **Modal Support:** Create and edit forms open in modal outlets.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Component Structure
 
-## Running unit tests
+- **AppComponent:** Root component.
+- **InvoiceListComponent:** Displays the list of invoices.
+- **InvoiceCardComponent:** Card view for each invoice in the list.
+- **InvoiceDetailsComponent:** Shows details for a selected invoice.
+- **InvoiceStatusComponent:** Displays the status of an invoice.
+- **InvoiceInfoComponent:** Shows invoice information in detail view.
+- **FormComponent:** Handles both new and edit invoice forms.
+- **DeleteComponent:** Modal for confirming invoice deletion.
+- **InvoiceDetailToolbarComponent:** Toolbar for actions in the detail view.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## Routing Overview
 
-## Running end-to-end tests
+The app uses Angular Router with the following main routes:
 
-For end-to-end (e2e) testing, run:
+| Path                 | Component                | Description                |
+| -------------------- | ------------------------ | -------------------------- |
+| `/invoices`          | InvoiceListComponent     | Shows all invoices         |
+| `/invoices/:id`      | InvoiceDetailsComponent  | Shows invoice details      |
+| `/invoices/new`      | NewInvoiceFormComponent  | Create new invoice (modal) |
+| `/invoices/:id/edit` | EditInvoiceFormComponent | Edit invoice (modal)       |
+| `/`                  | Redirects to `/invoices` |                            |
 
-```bash
-ng e2e
-```
+Modal routes use named outlets for forms and deletion confirmation.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Form Implementation
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Reactive Forms:** The app uses Angular Reactive Forms for invoice creation and editing.
+- **FormArray:** Items in an invoice are managed using a `FormArray` for dynamic add/remove.
+- **Validation:** Required fields and numeric validation are enforced.
+- **Live Calculation:** Item totals are calculated in real-time as users enter quantity and price.
+
+---
+
+## Git Workflow
+
+1. **Created a new branch for each feature or bugfix:**
+
+   ```sh
+   git checkout -b feature/feature-name
+   ```
+
+2. **Committed changes with clear messages:**
+
+   ```sh
+   git add .
+   git commit -m "Add feature: description"
+   ```
+
+3. **Push your branch:**
+
+   ```sh
+   git push origin feature/feature-name
+   ```
+
+4. **Open a Pull Request** on GitHub for code review and merging.
+
+5. **Keep branch up to date:**
+   ```sh
+   git fetch origin
+   git rebase origin/main
+   ```
+
+---
