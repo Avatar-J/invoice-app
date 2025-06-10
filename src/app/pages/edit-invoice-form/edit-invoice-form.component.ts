@@ -1,35 +1,19 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormComponent } from '../../components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Invoice, InvoiceItem } from '../../../Model/invoice';
 import { InvoiceServiceService } from '../../services/invoice-service.service';
 import { Router } from '@angular/router';
+import { Invoice, InvoiceItem } from '../../../Model/invoice';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-form',
+  selector: 'app-edit-invoice-form',
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './form.component.html',
-  styleUrl: './form.component.scss',
+  templateUrl: './edit-invoice-form.component.html',
+  styleUrl: './edit-invoice-form.component.scss',
 })
-export class FormComponent implements OnInit {
-  // @Input({ required: true })
-  // discard!: string;
-
-  // @Input({ required: true })
-  // draft!: boolean;
-
-  // @Input({ required: true })
-  // save!: string;
-
-  // @Input()
-  // purpose!: 'edit' | 'new';
-
-  // @Input()
-  // formTitle!: string;
-
-  // @Input() invoiceDataToEdit?: Invoice;
-
+export class EditInvoiceFormComponent implements OnInit {
   invoiceFormData!: FormGroup;
 
   formBuilder = inject(FormBuilder);
@@ -131,34 +115,19 @@ export class FormComponent implements OnInit {
 
     return invoiceData;
   }
+
   navigate() {
-    this.router.navigate(['']);
-    // if (this.purpose === 'new') {
-    //   this.router.navigate(['/invoices']);
-    // } else {
-    //   this.router.navigate(['/invoices', this.invoiceId]);
-    // }
+    // this.router.navigate(['/invoices', invoice.id, 'edit']);
   }
+
   onDiscard(): void {
     this.invoiceFormData.reset();
-    this.navigate();
-  }
-  onSaveDraft(): void {
-    if (this.invoiceFormData.valid) {
-      const invoiceObj = {
-        ...this.createInvoiceObj(),
-        status: 'draft' as 'draft',
-      };
-      this.InvoiceService.add(invoiceObj);
-      this.navigate();
-    }
   }
 
   onSubmit() {
     if (this.invoiceFormData.valid) {
       const invoiceObj = this.createInvoiceObj();
       this.InvoiceService.add(invoiceObj);
-      this.navigate();
     }
   }
 }

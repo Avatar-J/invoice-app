@@ -1,83 +1,84 @@
 <div class="invoice-info">
-    <div class="top">
-        <div class="right">
-            <h3 class="dark-text"><span>#</span>{{invoice.id}}</h3>
-            <p>{{invoice.description}}</p>
+    <div *ngIf="invoice">
+        <div class="top">
+            <div class="right">
+                <h3 class="dark-text"><span>#</span>{{invoice.id}}</h3>
+                <p>{{invoice.description}}</p>
+            </div>
+            <div class="senders-address">
+                <div>{{invoice.senderAddress.street}}</div>
+                <div>{{invoice.senderAddress.city}}</div>
+                <div>{{invoice.senderAddress.postCode}}</div>
+                <div>{{invoice.senderAddress.country}}</div>
+
+            </div>
         </div>
-        <div class="senders-address">
-            <div>{{invoice.senderAddress.street}}</div>
-            <div>{{invoice.senderAddress.city}}</div>
-            <div>{{invoice.senderAddress.postCode}}</div>
-            <div>{{invoice.senderAddress.country}}</div>
+
+        <div class="second">
+            <div class="one">
+                <div class="invoice-date div1">
+                    <p>Invoice Date</p>
+                    <h3 class="dark-text">{{invoice.createdAt | date: 'dd MMM YYYY'}}</h3>
+                </div>
+                <div class="Payment-due div1">
+                    <p>Payment Due</p>
+                    <h3 class="dark-text">{{invoice.paymentDue | date: 'dd MMM YYYY'}}</h3>
+                </div>
+
+            </div>
+
+            <div class="two">
+                <div class="bill-to div1">
+                    <p>Bill To</p>
+                    <h3 class="dark-text">{{invoice.clientName}}</h3>
+                </div>
+
+                <div class="client-address">
+                    <div>{{invoice.clientAddress.street}}</div>
+                    <div>{{invoice.clientAddress.city}}</div>
+                    <div>{{invoice.clientAddress.postCode}}</div>
+                    <div>{{invoice.clientAddress.country}}</div>
+
+                </div>
+
+            </div>
+
+            <div class="sendTo div1">
+                <p>Send To</p>
+                <h3 class="dark-text">{{invoice.clientEmail}}</h3>
+
+            </div>
+
+        </div>
+
+        <div class="items">
+            <div class="gridrow table-header">
+                <div>Item Name</div>
+                <div class="Qty">Qty</div>
+                <div class="price">Price</div>
+                <div class="total">Total</div>
+            </div>
+
+            @for(item of invoice.items;let i = $index; track i; ){
+            <div class="gridrow">
+                <div class="dark-text">
+                    <h3>{{item.name}}</h3>
+                </div>
+                <div class="Qty">{{item.quantity}}</div>
+                <div class="price"><span>£</span>{{item.price}}</div>
+                <div class="dark-text total">
+                    <h3><span>£</span>{{item.total}}</h3>
+                </div>
+            </div>
+            }
+
+        </div>
+
+        <div class="amount-due">
+            <div>Amount Due</div>
+
+            <div>€1800.90</div>
 
         </div>
     </div>
-
-    <div class="second">
-        <div class="one">
-            <div class="invoice-date div1">
-                <p>Invoice Date</p>
-                <h3 class="dark-text">{{invoice.createdAt | date: 'dd MMM YYYY'}}</h3>
-            </div>
-            <div class="Payment-due div1">
-                <p>Payment Due</p>
-                <h3 class="dark-text">{{invoice.paymentDue | date: 'dd MMM YYYY'}}</h3>
-            </div>
-
-        </div>
-
-        <div class="two">
-            <div class="bill-to div1">
-                <p>Bill To</p>
-                <h3 class="dark-text">{{invoice.clientName}}</h3>
-            </div>
-
-            <div class="client-address">
-                <div>{{invoice.clientAddress.street}}</div>
-                <div>{{invoice.clientAddress.city}}</div>
-                <div>{{invoice.clientAddress.postCode}}</div>
-                <div>{{invoice.clientAddress.country}}</div>
-
-            </div>
-
-        </div>
-
-        <div class="sendTo div1">
-            <p>Send To</p>
-            <h3 class="dark-text">{{invoice.clientEmail}}</h3>
-
-        </div>
-
-    </div>
-
-    <div class="items">
-        <div class="gridrow table-header">
-            <div>Item Name</div>
-            <div class="Qty">Qty</div>
-            <div class="price">Price</div>
-            <div class="total">Total</div>
-        </div>
-
-        @for(item of invoice.items;let i = $index; track i; ){
-        <div class="gridrow">
-            <div class="dark-text">
-                <h3>{{item.name}}</h3>
-            </div>
-            <div class="Qty">{{item.quantity}}</div>
-            <div class="price"><span>£</span>{{item.price}}</div>
-            <div class="dark-text total">
-                <h3><span>£</span>{{item.total}}</h3>
-            </div>
-        </div>
-        }
-
-    </div>
-
-    <div class="amount-due">
-        <div>Amount Due</div>
-
-        <div>€1800.90</div>
-
-    </div>
-
 </div>

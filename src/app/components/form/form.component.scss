@@ -12,7 +12,7 @@
 .scrollable-container {
   width: 100%;
   padding: $base-padding;
-  padding-top: 600px;
+  padding-top: 500px;
   @include positionWithJustify(center, column);
   overflow-y: auto;
 

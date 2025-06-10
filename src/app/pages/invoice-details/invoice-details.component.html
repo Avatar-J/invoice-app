@@ -1,3 +1,7 @@
+@if(showDeleteModal){
+<app-delete />
+}
+
 <div class="wrapper">
     <div>
         <a [routerLink]="''">
@@ -11,18 +15,45 @@
     <div class="top-toolbar">
         <div class="left-toolbar">
             <span>Status</span>
-            <app-invoice-status [invoiceStatus]="'paid'"></app-invoice-status>
+            <app-invoice-status [invoiceStatus]="invoice.status"></app-invoice-status>
         </div>
 
         <div class="right-toolbar">
-            <app-invoice-detail-toolbar></app-invoice-detail-toolbar>
+            <div class="toolbar">
+                <button class="edit" (click)="onEditInvoice()">
+                    Edit
+                </button>
+
+                <button class="delete" (click)="onDelete()">
+                    Delete
+                </button>
+
+                <button class="mark" (click)="onMarkAsPaid()">
+                    Mark as Paid
+                </button>
+
+            </div>
         </div>
     </div>
 
     <app-invoice-info [invoice]="invoice"></app-invoice-info>
 
     <div class="bottom-toolbar">
-        <app-invoice-detail-toolbar></app-invoice-detail-toolbar>
+        <div class="toolbar">
+            <button class="edit" (click)="onEditInvoice()">
+                Edit
+            </button>
+
+            <button class="delete" (click)="onDelete()">
+                Delete
+            </button>
+
+            <button class="mark">
+                Mark as Paid
+            </button>
+
+        </div>
     </div>
 
 </div>
+<router-outlet name="modal"></router-outlet>

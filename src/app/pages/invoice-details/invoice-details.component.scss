@@ -43,4 +43,19 @@
   .invoice-detail {
     background-color: coral;
   }
+  .right-toolbar {
+    .edit {
+      @include actionButtonWide(#f9fafe, #7e88c3);
+      padding: $base-padding $base-padding;
+    }
+    .delete {
+      @include actionButtonWide($orange-red);
+    }
+    .mark {
+      @include actionButtonWide($primary-purple-dark, #ffffff, 181px);
+    }
+    .toolbar {
+      @include position(row, $base-gap);
+    }
+  }
 }

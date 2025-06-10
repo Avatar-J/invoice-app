@@ -28,4 +28,24 @@ export class InvoiceServiceService {
       map((invoices) => invoices.find((invoice) => invoice.id === id))
     );
   }
+
+  add(newInvoice: Invoice) {
+    const currentInvoices = this.invoicesSubject.getValue();
+    const updatedInvoices = [...currentInvoices, newInvoice];
+    this.invoicesSubject.next(updatedInvoices);
+  }
+  delete(id: string): void {
+    const currentInvoices = this.invoicesSubject.getValue();
+    const updatedInvoices = currentInvoices.filter(
+      (invoice) => invoice.id !== id
+    );
+    this.invoicesSubject.next(updatedInvoices);
+  }
+  update(updatedInvoice: Invoice): void {
+    const currentInvoices = this.invoicesSubject.getValue();
+    const updatedInvoices = currentInvoices.map((invoice) =>
+      invoice.id === updatedInvoice.id ? updatedInvoice : invoice
+    );
+    this.invoicesSubject.next(updatedInvoices);
+  }
 }
