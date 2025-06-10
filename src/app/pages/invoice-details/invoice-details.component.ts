@@ -52,7 +52,10 @@ export class InvoiceDetailsComponent implements OnInit {
   onDelete() {
     this.showDeleteModal = true;
   }
-
+  changeModalState() {
+    this.showDeleteModal = !this.showDeleteModal;
+    console.log('change modal state', this.showDeleteModal);
+  }
   onMarkAsPaid() {
     console.log('mark as paid');
     const id = this.route.snapshot.paramMap.get('id');

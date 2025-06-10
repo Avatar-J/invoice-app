@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { InvoiceServiceService } from '../../services/invoice-service.service';
 
@@ -9,6 +9,9 @@ import { InvoiceServiceService } from '../../services/invoice-service.service';
   styleUrl: './delete.component.scss',
 })
 export class DeleteComponent implements OnInit {
+  @Output()
+  closeModal = new EventEmitter<void>();
+
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private invoiceService = inject(InvoiceServiceService);
@@ -21,11 +24,13 @@ export class DeleteComponent implements OnInit {
 
   onCancel() {
     console.log(this.invoiceId);
-    if (this.invoiceId) {
-      this.router.navigate(['invoices', this.invoiceId]);
-    } else {
-      this.router.navigate(['']);
-    }
+    // if (this.invoiceId) {
+    //   this.router.navigate(['/invoices', this.invoiceId]);
+    // } else {
+    //   this.router.navigate(['']);
+    // }
+    console.log('event emitted to close modal');
+    this.closeModal.emit();
   }
 
   onConfirmDelete() {
