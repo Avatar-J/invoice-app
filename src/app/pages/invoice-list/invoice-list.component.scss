@@ -61,6 +61,36 @@
       }
     }
 
+    .custom-select {
+      position: relative;
+      width: 118px;
+      cursor: pointer;
+      user-select: none;
+
+      .selected-option {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        box-shadow: $base-box-shadow;
+        border-radius: 4px;
+        margin-top: 4px;
+        z-index: 10;
+        list-style: none;
+
+        .li {
+          padding: 20px;
+          cursor: pointer;
+        }
+      }
+    }
     .new-invoice {
       @include button;
       @include actionButton($primary-purple-dark);

@@ -1,24 +1,45 @@
-@if(showDeleteModal){
-<app-delete />
-}
+<div [ngStyle]="{'width': '100%'}" class="invoice-details">
+    @if(showDeleteModal){
+    <app-delete (closeModal)="changeModalState()" />
+    }
 
-<div class="wrapper">
-    <div>
-        <a [routerLink]="''">
-            <img src="assets/images/icon-arrow-left.svg" />
-            <span>Go back</span>
-        </a>
+    <div class="wrapper">
+        <div>
+            <a [routerLink]="''">
+                <img src="assets/images/icon-arrow-left.svg" />
+                <span>Go back</span>
+            </a>
 
-    </div>
-
-
-    <div class="top-toolbar">
-        <div class="left-toolbar">
-            <span>Status</span>
-            <app-invoice-status [invoiceStatus]="invoice.status"></app-invoice-status>
         </div>
 
-        <div class="right-toolbar">
+
+        <div class="top-toolbar">
+            <div class="left-toolbar">
+                <span>Status</span>
+                <app-invoice-status [invoiceStatus]="invoice.status"></app-invoice-status>
+            </div>
+
+            <div class="right-toolbar">
+                <div class="toolbar">
+                    <button class="edit" (click)="onEditInvoice()">
+                        Edit
+                    </button>
+
+                    <button class="delete" (click)="onDelete()">
+                        Delete
+                    </button>
+
+                    <button class="mark" (click)="onMarkAsPaid()">
+                        Mark as Paid
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <app-invoice-info [invoice]="invoice"></app-invoice-info>
+
+        <div class="bottom-toolbar">
             <div class="toolbar">
                 <button class="edit" (click)="onEditInvoice()">
                     Edit
@@ -28,32 +49,13 @@
                     Delete
                 </button>
 
-                <button class="mark" (click)="onMarkAsPaid()">
+                <button class="mark">
                     Mark as Paid
                 </button>
 
             </div>
         </div>
+
     </div>
-
-    <app-invoice-info [invoice]="invoice"></app-invoice-info>
-
-    <div class="bottom-toolbar">
-        <div class="toolbar">
-            <button class="edit" (click)="onEditInvoice()">
-                Edit
-            </button>
-
-            <button class="delete" (click)="onDelete()">
-                Delete
-            </button>
-
-            <button class="mark">
-                Mark as Paid
-            </button>
-
-        </div>
-    </div>
-
-</div>
-<router-outlet name="modal"></router-outlet>
+    <router-outlet name="modal"></router-outlet>
+    <div>
