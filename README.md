@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Invoice App is a simple Angular application for managing invoices. Users can view a list of invoices, see invoice details, create new invoices, edit existing ones, and mark invoices as paid. The app demonstrates Angular best practices, including component-based architecture, reactive forms, and modular routing.
+Invoice-app is a simple Angular application for managing invoices. Users can view a list of invoices, see invoice details, create new invoices, edit existing ones, and mark invoices as paid.
 
 ---
 

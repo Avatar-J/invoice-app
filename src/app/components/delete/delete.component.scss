@@ -25,6 +25,7 @@
 
     .main-content {
       @include position(column, $base-gap);
+      padding: 25px;
     }
 
     h1 {
